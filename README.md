@@ -18,7 +18,7 @@ Material de apoio para o módulo de Cloud Computing do MBA de ML
 - Desenvolver lambda com trigger de S3 para leitura do arquivo csv e envio de mensagem para o SQS
 - Desenvolver lambda com trigger de SQS para salvar dados no RDS
 
-## Links para Lambda Layers
+## Links para Lambda Layers (Python 3.7)
 - PyMySQL : https://drive.google.com/file/d/1E88f9HDYKDcZjWpaeGjgbGoRfO6z6hNe/view?usp=sharing
 - Pandas: https://drive.google.com/file/d/1xULSuq7W2F4XvXn8OkSMuvgWysjdDgRr/view?usp=sharing
 
