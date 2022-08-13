@@ -27,3 +27,19 @@ Material de apoio para o módulo de Cloud Computing do MBA de ML
 - Kaggle: https://www.kaggle.com/ 
 - Dataset Titanic: https://www.kaggle.com/datasets/brendan45774/test-file
 - Lambda Layer: https://towardsdatascience.com/how-to-install-python-packages-for-aws-lambda-layer-74e193c76a91
+
+
+## Log Create Permission
+{
+    "Statement": [
+        {
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:logs:*:*:*"
+        }
+    ]
+}
