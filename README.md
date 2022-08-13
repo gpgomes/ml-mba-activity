@@ -19,7 +19,7 @@ Material de apoio para o módulo de Cloud Computing do MBA de ML
 - Desenvolver lambda com trigger de SQS para salvar dados no RDS
 
 ## Links para Lambda Layers (Python 3.7)
-- PyMySQL : https://drive.google.com/file/d/1E88f9HDYKDcZjWpaeGjgbGoRfO6z6hNe/view?usp=sharing
+- PyMySQL : https://drive.google.com/file/d/1bBJANtI_Tj0_CGcwGeZWT0giipHKSEXB/view?usp=sharing
 - Pandas: https://drive.google.com/file/d/1xULSuq7W2F4XvXn8OkSMuvgWysjdDgRr/view?usp=sharing
 
 ## Links de Referência
