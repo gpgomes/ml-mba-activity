@@ -28,6 +28,7 @@ def send_to_sqs(dataset):
 def execute(local_file_path):
     logger.info('Reading file')
     df = pd.read_csv(local_file_path)
+    df.fillna('', inplace=True)
     send_to_sqs(df.to_dict('records'))
 
 
