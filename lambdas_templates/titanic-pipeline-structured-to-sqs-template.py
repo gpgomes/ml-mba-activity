@@ -9,7 +9,7 @@ logger.setLevel(logging.INFO)
 
 def send_sqs_message(msg_body):
     sqs_client = boto3.client('sqs')
-    sqs_queue_url = sqs_client.get_queue_url(QueueName='titanic-queue')['QueueUrl']
+    sqs_queue_url = "<my-queue-url>"
     try:
         msg = sqs_client.send_message(QueueUrl=sqs_queue_url, MessageBody=json.dumps(msg_body))
     except Exception as e:

@@ -1,16 +1,16 @@
+import boto3
+import csv
+import json
 import logging
 import urllib.parse
-import boto3
-import json
-import pandas as pd
 
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
+
+logging.getLogger().setLevel(logging.INFO)
 
 
 def send_sqs_message(msg_body):
     sqs_client = boto3.client('sqs')
-    sqs_queue_url = sqs_client.get_queue_url(QueueName='titanic-queue')['QueueUrl']
+    sqs_queue_url = "<my-queue-url>"
     try:
         msg = sqs_client.send_message(QueueUrl=sqs_queue_url,
                                       MessageBody=json.dumps(msg_body))
@@ -26,10 +26,13 @@ def send_to_sqs(dataset):
 
 
 def execute(local_file_path):
-    logger.info('Reading file')
-    df = pd.read_csv(local_file_path)
-    df.fillna('', inplace=True)
-    send_to_sqs(df.to_dict('records'))
+    with open(local_file_path, mode='r') as infile:
+        reader = list(csv.reader(infile))
+        header = reader[0]
+        for row in reader[1:]:
+            if row:
+                row_dict = dict(zip(header, row))
+                print(row_dict)
 
 
 def lambda_handler(event, context):

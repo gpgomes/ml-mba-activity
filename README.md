@@ -20,7 +20,6 @@ Material de apoio para o módulo de Cloud Computing do MBA de ML
 
 ## Links para Lambda Layers (Python 3.7)
 - PyMySQL : https://drive.google.com/file/d/1bBJANtI_Tj0_CGcwGeZWT0giipHKSEXB/view?usp=sharing
-- Pandas: https://drive.google.com/file/d/1xULSuq7W2F4XvXn8OkSMuvgWysjdDgRr/view?usp=sharing
 
 ## Links de Referência
 - DBeaver (DB Client): https://dbeaver.io/download/ 
@@ -29,7 +28,7 @@ Material de apoio para o módulo de Cloud Computing do MBA de ML
 - Lambda Layer: https://towardsdatascience.com/how-to-install-python-packages-for-aws-lambda-layer-74e193c76a91
 
 
-## Log Create Permission
+## Log Create, S3 and SQS Permissions
 ```
 {
     "Statement": [
@@ -41,7 +40,37 @@ Material de apoio para o módulo de Cloud Computing do MBA de ML
             ],
             "Effect": "Allow",
             "Resource": "arn:aws:logs:*:*:*"
+        },
+		{
+			"Action": [
+				"s3:GetObject"
+			],
+			"Effect": "Allow",
+			"Resource": "arn:aws:s3:::*"
+		},
+		{
+			"Action": [
+				"s3:PutObject"
+			],
+			"Effect": "Allow",
+			"Resource": "arn:aws:s3:::<my-bucket>/*"
+		},
+		{
+            "Action": [
+                "sqs:SendMessage"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:sqs:<my-queue-arn>"
+        },
+		{
+            "Action": [
+                "sqs:ReceiveMessage"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:sqs:<my-queue-arn>"
         }
-    ]
+	]
 }
+
+
 ```
