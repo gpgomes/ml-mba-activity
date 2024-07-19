@@ -62,14 +62,14 @@ Material de apoio para o módulo de Cloud Computing do MBA de ML
             "Effect": "Allow",
             "Resource": "arn:aws:sqs:<my-queue-arn>"
         },
-		{
+        {
             "Action": [
                 "sqs:ReceiveMessage"
             ],
             "Effect": "Allow",
             "Resource": "arn:aws:sqs:<my-queue-arn>"
         }
-	]
+    ]
 }
 
 
