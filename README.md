@@ -41,21 +41,21 @@ Material de apoio para o módulo de Cloud Computing do MBA de ML
             "Effect": "Allow",
             "Resource": "arn:aws:logs:*:*:*"
         },
-		{
-			"Action": [
-				"s3:GetObject"
-			],
-			"Effect": "Allow",
-			"Resource": "arn:aws:s3:::*"
-		},
-		{
-			"Action": [
-				"s3:PutObject"
-			],
-			"Effect": "Allow",
-			"Resource": "arn:aws:s3:::<my-bucket>/*"
-		},
-		{
+        {
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::*"
+        },
+        {
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::<my-bucket>/*"
+        },
+        {
             "Action": [
                 "sqs:SendMessage"
             ],
@@ -66,7 +66,7 @@ Material de apoio para o módulo de Cloud Computing do MBA de ML
             "Action": [
                 "sqs:ReceiveMessage",
                 "sqs:DeleteMessage",
-                "sqs:GetAttributes"
+                "sqs:GetQueueAttributes"
             ],
             "Effect": "Allow",
             "Resource": "arn:aws:sqs:<my-queue-arn>"
