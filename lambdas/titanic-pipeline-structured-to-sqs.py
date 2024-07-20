@@ -20,11 +20,6 @@ def send_sqs_message(msg_body):
     return msg
 
 
-def send_to_sqs(dataset):
-    for item in dataset:
-        send_sqs_message(item)
-
-
 def execute(local_file_path):
     with open(local_file_path, mode='r') as infile:
         reader = list(csv.reader(infile))
@@ -32,7 +27,7 @@ def execute(local_file_path):
         for row in reader[1:]:
             if row:
                 row_dict = dict(zip(header, row))
-                print(row_dict)
+                send_sqs_message(row_dict)
 
 
 def lambda_handler(event, context):
