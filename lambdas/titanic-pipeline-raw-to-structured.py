@@ -18,7 +18,7 @@ def create_structured_file(json_content):
     data_file = open(local_csv_file, 'w')
     csv_writer = csv.writer(data_file)
     count = 0
-    for passenger in json_content:
+    for passenger in eval(json_content):
         if count == 0:
             header = passenger.keys()
             csv_writer.writerow(header)
