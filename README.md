@@ -64,7 +64,9 @@ Material de apoio para o módulo de Cloud Computing do MBA de ML
         },
         {
             "Action": [
-                "sqs:ReceiveMessage"
+                "sqs:ReceiveMessage",
+                "sqs:DeleteMessage",
+                "sqs:GetAttributes"
             ],
             "Effect": "Allow",
             "Resource": "arn:aws:sqs:<my-queue-arn>"
