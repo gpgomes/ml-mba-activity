@@ -26,7 +26,7 @@ def create_structured_file(json_content):
         csv_writer.writerow(passenger.values())
     data_file.close()
 
-    bucket_name = 'ml-mba-ufscar-titanic-pipeline-structured'
+    bucket_name = 'mba-structured'
 
     s3 = boto3.resource('s3')
     s3.meta.client.upload_file(local_csv_file, bucket_name, file_name)
