@@ -25,8 +25,5 @@ Material de apoio para o módulo de Cloud Computing do MBA de ML
 - PyMySQL : https://drive.google.com/file/d/1bBJANtI_Tj0_CGcwGeZWT0giipHKSEXB/view?usp=sharing
 
 ## Links de Referência
-- DBeaver (DB Client): https://dbeaver.io/download/ 
 - Kaggle: https://www.kaggle.com/ 
 - Dataset Titanic: https://www.kaggle.com/datasets/brendan45774/test-file
-- Lambda Layer: https://towardsdatascience.com/how-to-install-python-packages-for-aws-lambda-layer-74e193c76a91
-
