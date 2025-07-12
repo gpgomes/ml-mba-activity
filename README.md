@@ -10,13 +10,21 @@ Material de apoio para o módulo de Cloud Computing do MBA de ML
 - Arquivo com script sql para gerar tabela para salvar os dados: titanic_database.sql
 
 ## Passo-a-passo
-- Criar instância no RDS
-  - Instalar DBeaver ou similar
-  - Configurar segurança da instância para receber conexões públicas.
 - Criar dois buckets no S3
+  - mba-raw
+  - mba-structured
+- Criar fila SQS
+  - sqs-titanic
+- Criar política de acesso no IAM com permissões para Cloud Watch, S3 e SQS
+  - mba-ufscar 
+- Criar RDS
+- Configurar DBeaver ou similar
 - Desenvolver lambda com trigger de S3 para leitura do arquivo original e criação do arquivo csv
+  - titanic-pipeline-raw-to-structured
 - Desenvolver lambda com trigger de S3 para leitura do arquivo csv e envio de mensagem para o SQS
+  - titanic-pipeline-structured-to-sqs
 - Desenvolver lambda com trigger de SQS para salvar dados no RDS
+  - titanic-pipeline-sqs-to-rds
 
 ## Links para Lambda Layers (Python 3.9)
 - PyMySQL : https://drive.google.com/file/d/1bBJANtI_Tj0_CGcwGeZWT0giipHKSEXB/view?usp=sharing
@@ -27,52 +35,3 @@ Material de apoio para o módulo de Cloud Computing do MBA de ML
 - Dataset Titanic: https://www.kaggle.com/datasets/brendan45774/test-file
 - Lambda Layer: https://towardsdatascience.com/how-to-install-python-packages-for-aws-lambda-layer-74e193c76a91
 
-
-## Log Create, S3 and SQS Permissions
-```
-{
-    "Statement": [
-        {
-            "Action": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents"
-            ],
-            "Effect": "Allow",
-            "Resource": "arn:aws:logs:*:*:*"
-        },
-        {
-            "Action": [
-                "s3:GetObject"
-            ],
-            "Effect": "Allow",
-            "Resource": "arn:aws:s3:::*"
-        },
-        {
-            "Action": [
-                "s3:PutObject"
-            ],
-            "Effect": "Allow",
-            "Resource": "arn:aws:s3:::<my-bucket>/*"
-        },
-        {
-            "Action": [
-                "sqs:SendMessage"
-            ],
-            "Effect": "Allow",
-            "Resource": "arn:aws:sqs:<my-queue-arn>"
-        },
-        {
-            "Action": [
-                "sqs:ReceiveMessage",
-                "sqs:DeleteMessage",
-                "sqs:GetQueueAttributes"
-            ],
-            "Effect": "Allow",
-            "Resource": "arn:aws:sqs:<my-queue-arn>"
-        }
-    ]
-}
-
-
-```
